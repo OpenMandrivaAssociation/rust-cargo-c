@@ -4,20 +4,17 @@
 
 %global crate cargo-c
 
-Name:           rust-%{crate}
+Name:           cargo-c
 Version:        0.5.1
-Release:        1%{?dist}
+Release:        1
 Summary:        Helper program to build and install c-like libraries
 
-# Upstream license specification: MIT
 License:        MIT
 URL:            https://crates.io/crates/cargo-c
-Source:         %{crates_source}
+Source:         https://github.com/lu-zero/cargo-c/archive/v0.5.1/%{crate}-%{version}.tar.gz
 # Initial patched metadata
 # * Update cbindgen to 0.12, https://github.com/lu-zero/cargo-c/pull/47
-Patch0:         cargo-c-fix-metadata.diff
-
-ExclusiveArch:  %{rust_arches}
+#Patch0:         cargo-c-fix-metadata.diff
 
 BuildRequires:  rust-packaging
 
@@ -26,19 +23,14 @@ Helper program to build and install c-like libraries.}
 
 %description %{_description}
 
-%package     -n %{crate}
-Summary:        %{summary}
-
-%description -n %{crate} %{_description}
-
-%files       -n %{crate}
+%files    
 %license LICENSE
 %doc README.md
 %{_bindir}/cargo-cbuild
 %{_bindir}/cargo-cinstall
 
 %prep
-%autosetup -n %{crate}-%{version_no_tilde} -p1
+%autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %generate_buildrequires
@@ -54,7 +46,3 @@ Summary:        %{summary}
 %check
 %cargo_test
 %endif
-
-%changelog
-* Thu Dec 19 19:13:31 CET 2019 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 0.5.1-1
-- Initial package
