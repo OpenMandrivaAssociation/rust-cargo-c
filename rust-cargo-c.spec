@@ -33,8 +33,8 @@ Helper program to build and install c-like libraries.}
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
-#%generate_buildrequires
-#%cargo_generate_buildrequires
+%generate_buildrequires
+%cargo_generate_buildrequires
 
 %build
 %cargo_build
