@@ -5,16 +5,13 @@
 %global crate cargo-c
 
 Name:           cargo-c
-Version:        0.5.1
+Version:        0.6.15
 Release:        1
 Summary:        Helper program to build and install c-like libraries
 
 License:        MIT
 URL:            https://crates.io/crates/cargo-c
-Source:         https://github.com/lu-zero/cargo-c/archive/v0.5.1/%{crate}-%{version}.tar.gz
-# Initial patched metadata
-# * Update cbindgen to 0.12, https://github.com/lu-zero/cargo-c/pull/47
-#Patch0:         cargo-c-fix-metadata.diff
+Source0:        https://github.com/lu-zero/cargo-c/archive/v0.5.1/%{crate}-%{version}.tar.gz
 
 BuildRequires:  rust-packaging
 
